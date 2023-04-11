@@ -21,8 +21,10 @@ public class App {
         double qtdgaloes = m2 / (capacidadegalao * rendimento);
         double ValortotalGaloes = qtdgaloes * precogalão;
 
+        double m2Mistura = m2 * 1.1;
+
         System.out.printf("A quantidade de latas a serem utilizadas será %f latas e custará %f reais.", qtdLatas,
-                precolata);
+                ValorTotalLatas);
         System.out.printf("\n" + "A quantidade de galões a serem utilizados será %f  e custará %f reais.", qtdgaloes,
                 ValortotalGaloes);
 
