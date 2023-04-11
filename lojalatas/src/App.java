@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.function.DoubleToIntFunction;
+import java.text.DecimalFormat;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -9,6 +10,9 @@ public class App {
         double precolata = 80.00;
         double rendimento = 6;
         double m2;
+
+        DecimalFormat deci = new DecimalFormat("0");
+        DecimalFormat reais = new DecimalFormat("0.00");
 
         Scanner sc = new Scanner(System.in);
 
@@ -34,20 +38,13 @@ public class App {
 
         double valortotalMis = ValorMisGalão + ValorMisLata;
 
-        System.out.printf("A quantidade de latas a serem utilizadas será %f latas e custará %f reais.", qtdLatas,
-                ValorTotalLatas);
-        System.out.printf("\n" + "A quantidade de galões a serem utilizados será %f  e custará %f reais.", qtdgaloes,
-                ValortotalGaloes);
-        System.out.printf(
-                "\n" + "A quantidade de latas a serem utilizados  na mistura será %f  e %f  galões e custará %f reais.",
-                qtdFinalmisturalata, quantidadeEmGaloesArredondada, valortotalMis);
-        System.out.println("\n");
-        System.out.println(qtdLatasMisArredondada);
-        System.out.println(m2Mistura);
-        System.out.println(qtdLatasMis);
-        System.out.println(qtdFinalmisturalata);
-        System.out.println(qtdConvertidaemGaloes);
-        System.out.println(quantidadeEmGaloesArredondada);
+        System.out.println("A quantidade de latas a serem utilizadas será " + deci.format(qtdLatas)
+                + " e custará R$" + reais.format(ValortotalGaloes));
+        System.out.println("A quantidade de galões a serem utilizados será " + deci.format(qtdgaloes) + " e custará R$"
+                + reais.format(ValortotalGaloes));
 
+        System.out.println("As quantidades a serem utilizados  na mistura será "
+                + deci.format(qtdFinalmisturalata) + " latas e " + deci.format(quantidadeEmGaloesArredondada)
+                + " galões e custará R$" + reais.format(valortotalMis));
     }
 }
