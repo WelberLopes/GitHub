@@ -11,10 +11,11 @@ import javax.swing.JOptionPane;
  * @author deuna
  */
 public class frmLogin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form frmLogin
-     */
+    private Dados msDados;
+    
+    public void setDados(Dados msDados){
+        this.msDados = msDados;
+    }
     public frmLogin() {
         initComponents();
     }
@@ -126,7 +127,7 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-       Dados msDados = new Dados();
+
        if (!msDados.validarUsuario(txtUsuario.getText(),
                new String (txtSenha.getPassword()))) {
            JOptionPane.showMessageDialog(rootPane, "Usuario e senha incorretos!");
@@ -138,6 +139,8 @@ public class frmLogin extends javax.swing.JFrame {
        } 
         frmPrincipal mPrincipal = new frmPrincipal();
         this.setVisible(false);
+        mPrincipal.setDados(msDados);
+        mPrincipal.setExtendedState(MAXIMIZED_BOTH);
         mPrincipal.setVisible(true);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
